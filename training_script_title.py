@@ -90,8 +90,8 @@ def train(final_df_path):
     convert(
         framework="pt",
         model="./models/title_model",
-        output="./models/title_model.onnx",
-        opset=12,
+        output="./onnx_models/title/title_model.onnx",
+        opset=14,
         tokenizer=tokenizer,
     )
 
