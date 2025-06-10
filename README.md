@@ -47,8 +47,5 @@ The training config can be used to define the triton inference server that can b
 To run the inference server use the following command
 
 ```
-docker run --gpus=1 --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 \
-  -v $(pwd)/onnx_models:/models \
-  nvcr.io/nvidia/tritonserver:23.04-py3 \
-  tritonserver --model-repository=/models
+docker run --gpus=1 --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 -v $(pwd)/onnx_models:/models nvcr.io/nvidia/tritonserver:23.04-py3 tritonserver --model-repository=/models
 ```
