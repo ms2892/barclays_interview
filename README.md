@@ -44,7 +44,18 @@ The training config can be used to define the triton inference server that can b
 
 ## Triton Inference Server
 
-To run the inference server use the following command
+To run the inference server use the following command. Before that make sure that the onnx_model folder structure looks something like this
+
+```
+onnx_models/
+└── title_model/
+    ├── 1/
+    │   └── title_model.onnx
+    └── config.pbtxt
+
+```
+
+Then run the following docker command to start a triton inference server
 
 ```
 docker run --gpus=1 --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 -v $(pwd)/onnx_models:/models nvcr.io/nvidia/tritonserver:23.04-py3 tritonserver --model-repository=/models
